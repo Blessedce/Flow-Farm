@@ -57,7 +57,7 @@ export default function SignUp() {
         className="bg-white p-6 sm:p-8 rounded-xl shadow-md w-full max-w-sm"
       >
 
-        <h2 className="text-xl font-semibold mb-4">
+        <h2 className="text-xl font-bold mb-4 text-center">
           Create Your Account
         </h2>
 
@@ -110,7 +110,7 @@ export default function SignUp() {
 
         <button 
           type="submit"
-          className="w-full bg-gray-800 text-white py-2 rounded-lg hover:bg-black"
+          className="w-full bg-gray-800 text-black py-2 rounded-lg hover:bg-black"
         >
           Create Account
         </button>
