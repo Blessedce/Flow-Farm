@@ -80,9 +80,13 @@ export default function SignIn() {
         )}
 
         {/* Forgot */}
-        <p className="text-xs text-gray-500 mb-4 cursor-pointer hover:underline">
-          Forgot Password?
-        </p>
+        
+       <Link
+  to="/forgotpassword"
+  className="block text-xs text-gray-500 mb-4 hover:underline"
+>
+  Forgot Password?
+</Link>
 
         {/* Login Button */}
         <button
