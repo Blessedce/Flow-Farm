@@ -1,4 +1,5 @@
-
+import DashboardLayout from "./components/dashboard/DashboardLayout";
+import Dashboard from "./components/pages/Dashboard";
 import { Routes, Route } from "react-router-dom";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp"
@@ -9,6 +10,10 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SignIn />} />
+      <Route path="/dashboard" element={<DashboardLayout/>}>
+      <Route index element={<Dashboard/>}/>
+      </Route>
+
       <Route path="/signup" element={<SignUp/>}/>
       <Route path="/newpassword" element={<NewPassword/>}/>
       <Route path="/forgotpassword" element={<ForgotPassword/>}/>
