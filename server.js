@@ -1,18 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
-
-// Basic route to check if the server is live
-app.get('/', (req, res) => {
-  res.send('SAFS Backend is running!');
-});
-
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is active on port ${PORT}`);
-});
+const DB_URI = process.env.MONGODB_URI;
+
+// Attempt to connect to the database first
+mongoose.connect(DB_URI)
+  .then(() => {
+    console.log('✅ Successfully connected to MongoDB Atlas');
+    // Only start the server if the database connection works
+    app.listen(PORT, () => {
+      console.log(`Server is active on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error('❌ Database connection error:', err);
+    process.exit(1); // Stop the app if it can't reach the database
+  });
