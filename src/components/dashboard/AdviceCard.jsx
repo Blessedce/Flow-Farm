@@ -7,9 +7,9 @@ export default function AdviceCard() {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow mt-4 text-center">
+    <div className="bg-[#ededed] p-6 rounded-xl shadow mt-4 text-center">
 
-      <h2 className="text-lg font-semibold mb-2">
+      <h2 className="text-lg font-bold mb-2 text-[#1d2a62]">
         Advice
       </h2>
 
