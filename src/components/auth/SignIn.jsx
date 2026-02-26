@@ -10,7 +10,6 @@ export default function SignIn() {
   const validate = () => {
     let newErrors = {};
 
-    // Email validation
     if(!email){
       newErrors.email = "Email is required";
     }
@@ -18,7 +17,6 @@ export default function SignIn() {
       newErrors.email = "Invalid email format";
     }
 
-    // Password validation
     if(!password){
       newErrors.password = "Password is required";
     }
@@ -35,19 +33,18 @@ export default function SignIn() {
 
     if(validate()){
       console.log("Login details ready for backend");
-      // API call goes here
     }
   };
 
   return(
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-[#ededed]">
 
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md w-80 transition-all"
+        className="bg-white p-8 rounded-xl shadow-lg w-80 border-t-4 border-[#1d2a62]"
       >
 
-        <h2 className="text-xl font-bold mb-2">
+        <h2 className="text-xl font-semibold mb-2 text-[#1d2a62]">
           Sign In
         </h2>
 
@@ -59,7 +56,7 @@ export default function SignIn() {
         <input
           type="email"
           placeholder="Email Address"
-          className="w-full border rounded-lg px-3 py-2 mb-1 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          className="w-full border border-[#87aece] rounded-lg px-3 py-2 mb-1 focus:outline-none focus:ring-2 focus:ring-[#afd06e]"
           value={email}
           onChange={(e)=>setEmail(e.target.value)}
         />
@@ -71,7 +68,7 @@ export default function SignIn() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full border rounded-lg px-3 py-2 mb-1 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          className="w-full border border-[#87aece] rounded-lg px-3 py-2 mb-1 focus:outline-none focus:ring-2 focus:ring-[#afd06e]"
           value={password}
           onChange={(e)=>setPassword(e.target.value)}
         />
@@ -80,18 +77,14 @@ export default function SignIn() {
         )}
 
         {/* Forgot */}
-        
-       <Link
-  to="/forgotpassword"
-  className="block text-xs text-gray-500 mb-4 hover:underline"
->
-  Forgot Password?
-</Link>
+        <p className="text-xs text-[#407118] mb-4 cursor-pointer hover:underline">
+          Forgot Password?
+        </p>
 
         {/* Login Button */}
         <button
           type="submit"
-          className="w-full bg-gray-800 text-black py-2 rounded-lg mb-3 hover:bg-black"
+          className="w-full bg-[#1d2a62] text-white py-2 rounded-lg mb-3 hover:bg-[#407118] transition-all"
         >
           Log in
         </button>
@@ -104,16 +97,18 @@ export default function SignIn() {
         {/* Google */}
         <button
           type="button"
-          className="w-full border py-2 rounded-lg hover:bg-gray-100"
+          className="w-full border border-[#87aece] py-2 rounded-lg hover:bg-[#87aece] hover:text-[#407118] transition-all"
         >
           Sign in with Google
         </button>
+
+
 
         <p className="text-xs text-gray-500 mt-4">
           Don't have an account?{" "}
           <Link
             to="/signup"
-            className="hover:underline text-blue-600"
+            className="hover:underline text-[#407118]"
           >
             Sign up here
           </Link>

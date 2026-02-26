@@ -19,11 +19,21 @@ export default function Dashboard(){
 
     </div>
 
-    <AdviceCard />
+   {/* Advice + Performance */}
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
 
-    <div className="mt-6">
-      <PerformanceChart />
-    </div>
+  {/* Advice takes 1 column */}
+   <div className="lg:col-span-2">
+    <PerformanceChart />
+  </div>
+  
+
+  {/* Chart takes 2 columns */}
+  <div className="lg:col-span-1">
+    <AdviceCard />
+  </div>
+
+</div>
 
     <div className="mt-6">
       <RecentIssuesTable />

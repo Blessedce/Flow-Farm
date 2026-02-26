@@ -16,12 +16,13 @@ export default function RecentIssuesTable(){
             <th className="p-2 text-left">Issue</th>
             <th className="p-2 text-left">Value</th>
             <th className="p-2 text-left">Status</th>
+            <th className="p-2 text-left">Actions</th>
           </tr>
         </thead>
 
         <tbody>
 
-          <tr className="border-b">
+          <tr className="">
             <td className="p-2">19 May</td>
             <td className="p-2">pH</td>
             <td className="p-2">Above safe range</td>
@@ -29,7 +30,7 @@ export default function RecentIssuesTable(){
             <td className="p-2 text-red-500">High</td>
           </tr>
 
-          <tr className="border-b">
+          <tr className="bg-gray-100">
             <td className="p-2">18 May</td>
             <td className="p-2">Water Level</td>
             <td className="p-2">Tank critically low</td>
