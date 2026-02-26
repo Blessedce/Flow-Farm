@@ -1,7 +1,9 @@
+import gif1 from "./images/gif1.gif";
+
 export default function AdviceCard() {
 
   const handleClick = () => {
-    window.open("https://chat.openai.com", "_blank");
+    window.open("https://chat.openai.com/", "_blank");
   };
 
   return (
@@ -19,9 +21,11 @@ export default function AdviceCard() {
         onClick={handleClick}
         className="cursor-pointer inline-block transition-transform duration-300 hover:scale-110 active:scale-95"
       >
-        <div className="text-6xl animate-bounce">
-          🌱
-        </div>
+        <img 
+          src={gif1} 
+          alt="Plant AI" 
+          className="w-65 h-55 object-contain mx-auto"
+        />
       </div>
 
     </div>
