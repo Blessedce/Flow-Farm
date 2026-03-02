@@ -2,7 +2,7 @@ import { FiHome, FiBarChart2, FiMessageCircle, FiSettings, FiHelpCircle, FiLogOu
 
 export default function Sidebar() {
   return (
-    <div className="hidden md:flex flex-col w-60 bg-gray-900 text-gray-300 min-h-screen justify-between">
+    <div className="w-60 bg-gray-900 text-gray-300 h-screen flex flex-col ">
 
       {/* Top Section */}
       <div className="p-6">
@@ -10,12 +10,13 @@ export default function Sidebar() {
 
         {/* Menu */}
         <nav className="flex flex-col gap-2">
+
           <div className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer">
             <FiHome />
             <span>Overview</span>
           </div>
 
-          <div className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer bg-gray-800">
+          <div className="flex items-center gap-3 p-2 rounded bg-gray-800 hover:bg-gray-700 cursor-pointer">
             <FiBarChart2 />
             <span>Summary</span>
           </div>
@@ -28,28 +29,37 @@ export default function Sidebar() {
           <div className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer relative">
             <FiMessageCircle />
             <span>Messages</span>
-            <span className="absolute right-3 bg-red-500 text-white text-xs font-bold px-2 rounded-full">2</span>
+
+            <span className="absolute right-3 bg-red-500 text-white text-xs font-bold px-2 rounded-full">
+              2
+            </span>
           </div>
+
         </nav>
       </div>
 
       {/* Bottom Section */}
-      <div className="p-6 border-t border-gray-700 flex flex-col gap-2 text-sm">
+      <div className="p-6 border-t border-gray-700 flex flex-col gap-3 text-sm">
+
         <div className="flex items-center gap-2 hover:text-white cursor-pointer">
           <FiSettings />
           <span>Settings</span>
         </div>
+
         <div className="flex items-center gap-2 hover:text-white cursor-pointer">
           <FiHelpCircle />
           <span>Help</span>
         </div>
+
         <div className="flex items-center gap-2 hover:text-white cursor-pointer">
           <span>Contact us</span>
         </div>
+
         <div className="flex items-center gap-2 hover:text-red-500 cursor-pointer">
           <FiLogOut />
           <span>Log out</span>
         </div>
+
       </div>
 
     </div>
