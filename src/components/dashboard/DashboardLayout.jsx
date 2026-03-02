@@ -1,6 +1,6 @@
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
-
+import Topbar from "./Topbar";
 export default function DashboardLayout(){
 
   return(
@@ -9,9 +9,18 @@ export default function DashboardLayout(){
       {/* Sidebar */}
       <Sidebar />
 
-      {/* Page Content */}
-      <div className="flex-1 p-4 sm:p-6">
-        <Outlet />
+
+            {/* Right Side */}
+      <div className="flex-1 flex flex-col">
+
+        {/* Topbar */}
+        <Topbar />
+
+        {/* Page Content */}
+        <div className="p-4 sm:p-6">
+          <Outlet />
+        </div>
+
       </div>
 
     </div>

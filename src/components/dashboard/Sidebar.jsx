@@ -2,7 +2,7 @@ import { FiHome, FiBarChart2, FiMessageCircle, FiSettings, FiHelpCircle, FiLogOu
 
 export default function Sidebar() {
   return (
-    <div className="hidden md:flex flex-col w-60 bg-gray-900 text-gray-300 h-screen justify-between">
+    <div className="hidden md:flex flex-col w-60 bg-gray-900 text-gray-300 min-h-screen justify-between">
 
       {/* Top Section */}
       <div className="p-6">
