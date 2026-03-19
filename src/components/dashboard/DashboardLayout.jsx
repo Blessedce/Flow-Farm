@@ -1,62 +1,69 @@
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react"; // Added X for a close button
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router-dom";
 import Topbar from "./Topbar";
 
-export default function DashboardLayout(){
+export default function DashboardLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  return(
-    <div className="flex min-h-screen bg-gray-100">
-  {/* Mobile Overlay */}
+
+  return (
+    // overflow-hidden prevents the "double scrollbar" bug
+    <div className="flex h-screen bg-gray-100 overflow-hidden">
+      
+      {/* Mobile Overlay */}
       <div
-        className={`fixed inset-0 bg-black/40 z-40 transition-opacity md:hidden ${
+        className={`fixed inset-0 bg-black/50 z-40 transition-opacity md:hidden ${
           sidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setSidebarOpen(false)}
       />
 
-
-       {/* Sidebar */}
-      <div
+      {/* Sidebar Wrapper */}
+      <aside
         className={`
-          fixed md:static z-50 
-          h-screen
-          transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
+          fixed md:static inset-y-0 left-0 z-50 
+          w-64 bg-gray-900 transition-transform duration-300 ease-in-out
+          ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0
-          transition-transform duration-300
         `}
       >
-        <Sidebar className="h-full flex flex-col"/>
-      </div>
-
-
-            {/* Right Side */}
-      <div className="flex-1 flex flex-col h-screen overflow-y-auto">
-
+        {/* Mobile Close Button (Optional but helpful) */}
+        <button 
+          className="md:hidden absolute right-4 top-4 text-white"
+          onClick={() => setSidebarOpen(false)}
+        >
+          <X className="w-6 h-6" />
+        </button>
         
-        {/* Topbar */}
-        <div className="flex flex-1 flex-col bg-gray-100 h-14 px-4">
+        <Sidebar />
+      </aside>
 
-          {/* Mobile Menu Button */}
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col min-w-0 h-screen">
+        
+        {/* Topbar - Removed flex-1 so it stays at 56px height */}
+        <header className="h-14 bg-white border-b border-gray-200 flex items-center px-4 shrink-0">
           <button
-            className="md:hidden"
+            className="md:hidden p-2 -ml-2 mr-2"
             onClick={() => setSidebarOpen(true)}
           >
             <Menu className="w-6 h-6 text-gray-700" />
           </button>
 
-          <Topbar />
+          <div className="flex-1">
+            <Topbar />
+          </div>
+        </header>
 
-        </div>
-
-        {/* Page Content */}
-        <div className="p-4 sm:p-6">
-          <Outlet />
-        </div>
+        {/* Page Content - Independent scroll */}
+        <main className="flex-1 overflow-y-auto p-4 md:p-8">
+          <div className="max-w-7xl mx-auto">
+            <Outlet />
+          </div>
+        </main>
 
       </div>
-
     </div>
   );
 }
