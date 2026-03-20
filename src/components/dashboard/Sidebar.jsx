@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FiHome, FiBarChart2, FiMessageCircle, FiSettings, FiHelpCircle, FiLogOut } from "react-icons/fi";
 
 export default function Sidebar() {
@@ -11,8 +12,11 @@ export default function Sidebar() {
 
         <nav className="flex flex-col gap-2">
           <div className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer">
+            <Link to="/dashboard/overview" className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer">
+  <FiBarChart2 />
             <FiHome />
             <span>Overview</span>
+            </Link>
           </div>
 
           <div className="flex items-center gap-3 p-2 rounded bg-gray-800 hover:bg-gray-700 cursor-pointer">
@@ -20,10 +24,10 @@ export default function Sidebar() {
             <span>Summary</span>
           </div>
 
-          <div className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer">
-            <FiBarChart2 />
-            <span>Custom view</span>
-          </div>
+         <Link to="/dashboard/analytics" className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer">
+  <FiBarChart2 />
+  <span>Analytics</span>
+</Link>
 
           <div className="flex items-center gap-3 p-2 rounded hover:bg-gray-700 cursor-pointer relative">
             <FiMessageCircle />

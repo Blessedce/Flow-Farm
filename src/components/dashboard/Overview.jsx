@@ -1,9 +1,9 @@
-import StatCard from "../dashboard/StatCard";
-import AdviceCard from "../dashboard/AdviceCard";
-import RecentIssuesTable from "../dashboard/RecentIssuesTable";
-import PerformanceChart from "../dashboard/PerformanceChart";
+import StatCard from "./StatCard";
+import AdviceCard from "./AdviceCard";
+import RecentIssuesTable from "./RecentIssuesTable";
+import Meters from "./Meters";
 
-export default function Dashboard(){
+export default function Overview(){
 
   return(
 
@@ -23,15 +23,15 @@ export default function Dashboard(){
 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
 
   {/* Advice takes 1 column */}
-   <div className="lg:col-span-2">
-    <PerformanceChart />
+   <div className="lg:col-span-3">
+    <Meters />
   </div>
   
 
   {/* Chart takes 2 columns */}
-  <div className="lg:col-span-1">
+  {/* <div className="lg:col-span-1">
     <AdviceCard />
-  </div>
+  </div> */}
 
 </div>
 
