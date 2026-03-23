@@ -19,3 +19,8 @@ mongoose.connect(DB_URI)
     console.error('❌ Database connection error:', err);
     process.exit(1); // Stop the app if it can't reach the database
   });
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send({ error: 'Internal Server Error' });
+});
