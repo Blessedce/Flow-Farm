@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const Link = ({ to, className, children }) => (
   <a href={to} className={className}>{children}</a>
@@ -85,50 +84,28 @@ export default function SignUp() {
         .field-icon-wrap:focus-within .field-icon { opacity: 1; }
       `}</style>
 
-      <div className="font-dm relative min-h-screen flex overflow-hidden bg-[#0e1628]">
+      {/* Main Container: flex-col on mobile, flex-row on desktop */}
+      <div className="font-dm relative min-h-screen flex flex-col lg:flex-row overflow-hidden bg-[#0e1628]">
 
-        {/* Background blobs */}
-        <div className="animate-drift-1 absolute w-125 h-125 rounded-full bg-[#87aece] opacity-[0.18] blur-[80px] -top-[100px] -right-[100px] pointer-events-none" />
-        <div className="animate-drift-2 absolute w-125 h-125 rounded-full bg-[#afd06e] opacity-[0.28] blur-[80px] -bottom-[100px] left-[15%] pointer-events-none" />
-        <div className="animate-drift-3 absolute w-[320px] h-80 rounded-full bg-[#407118] opacity-30 blur-[80px] top-[40%] -left-[60px] pointer-events-none" />
-        <div className="animate-drift-4 absolute w-65 h-65 rounded-full bg-[#afd06e] opacity-[0.12] blur-[80px] top-[10%] right-[35%] pointer-events-none" />
+        {/* Background blobs - hidden or adjusted for mobile */}
+        <div className="animate-drift-1 absolute w-72 h-72 lg:w-125 lg:h-125 rounded-full bg-[#87aece] opacity-[0.18] blur-[60px] lg:blur-[80px] -top-20 -right-20 lg:-top-[100px] lg:-right-[100px] pointer-events-none" />
+        <div className="animate-drift-2 absolute w-72 h-72 lg:w-125 lg:h-125 rounded-full bg-[#afd06e] opacity-[0.28] blur-[60px] lg:blur-[80px] -bottom-20 left-0 lg:-bottom-[100px] lg:left-[15%] pointer-events-none" />
         <div className="bg-grid-pattern absolute inset-0 pointer-events-none" />
 
-        {/* Leaf decorations */}
-        <svg className="animate-leaf-1 absolute top-[6%] left-[10%] opacity-[0.07] pointer-events-none" width="180" height="180" viewBox="0 0 100 100" fill="none">
-          <path d="M50 5 C80 5, 95 30, 95 50 C95 75, 70 95, 50 95 C30 95, 5 75, 5 50 C5 25, 20 5, 50 5Z" fill="#afd06e"/>
-          <path d="M50 5 L50 95" stroke="#407118" strokeWidth="2"/>
-          <path d="M50 30 C60 25, 75 30, 80 40" stroke="#407118" strokeWidth="1.5" fill="none"/>
-          <path d="M50 50 C60 45, 78 48, 82 58" stroke="#407118" strokeWidth="1.5" fill="none"/>
-          <path d="M50 40 C40 35, 25 38, 20 48" stroke="#407118" strokeWidth="1.5" fill="none"/>
-        </svg>
-        <svg className="animate-leaf-2 absolute bottom-[10%] right-[8%] opacity-[0.07] pointer-events-none rotate-[120deg]" width="140" height="140" viewBox="0 0 100 100" fill="none">
-          <path d="M50 5 C80 5, 95 30, 95 50 C95 75, 70 95, 50 95 C30 95, 5 75, 5 50 C5 25, 20 5, 50 5Z" fill="#afd06e"/>
-          <path d="M50 5 L50 95" stroke="#407118" strokeWidth="2"/>
-          <path d="M50 35 C62 28, 78 33, 83 45" stroke="#407118" strokeWidth="1.5" fill="none"/>
-          <path d="M50 55 C38 48, 22 53, 18 65" stroke="#407118" strokeWidth="1.5" fill="none"/>
-        </svg>
-        <svg className="animate-leaf-3 absolute top-[50%] right-[40%] opacity-[0.05] pointer-events-none rotate-[60deg]" width="220" height="220" viewBox="0 0 100 100" fill="none">
-          <path d="M50 5 C80 5, 95 30, 95 50 C95 75, 70 95, 50 95 C30 95, 5 75, 5 50 C5 25, 20 5, 50 5Z" fill="#afd06e"/>
-          <path d="M50 5 L50 95" stroke="#407118" strokeWidth="2"/>
-        </svg>
-
-        {/* Left: Form panel */}
-        <div className="w-115 shrink-0 flex items-center justify-center px-10 py-12 relative z-10 max-[800px]:w-full max-[800px]:px-5 max-[800px]:py-6">
-          <div className="card-top-border relative w-full bg-[rgba(64,113,24,0.06)] border border-[rgba(175,208,110,0.18)] rounded-3xl px-10 py-11 backdrop-blur-xl overflow-hidden">
+        {/* --- LEFT: FORM PANEL --- */}
+        <div className="w-full lg:w-[480px] shrink-0 flex items-center justify-center px-5 py-10 lg:px-10 lg:py-12 relative z-10">
+          <div className="card-top-border relative w-full max-w-[420px] bg-[rgba(64,113,24,0.06)] border border-[rgba(175,208,110,0.18)] rounded-3xl px-6 py-8 lg:px-10 lg:py-11 backdrop-blur-xl overflow-hidden">
 
             {/* Deco rings */}
             <div className="absolute -top-7.5 -left-7.5 w-30 h-30 rounded-full border border-[rgba(175,208,110,0.14)]" />
-            <div className="absolute -top-15 -left-15 w-45 h-45 rounded-full border border-[rgba(64,113,24,0.12)]" />
 
-            <div className="text-[11px] font-medium text-[#afd06e] tracking-[0.12em] uppercase mb-2.5">Get started</div>
-            <div className="font-playfair text-[26px] text-[#f0f4ff] font-semibold mb-1.5">Create Account</div>
+            <div className="text-[10px] lg:text-[11px] font-medium text-[#afd06e] tracking-[0.12em] uppercase mb-2.5">Get started</div>
+            <div className="font-playfair text-[24px] lg:text-[26px] text-[#f0f4ff] font-semibold mb-1.5">Create Account</div>
             <div className="text-[13px] text-[rgba(240,244,255,0.38)] mb-7 leading-relaxed">Join thousands of growers monitoring their ecosystems</div>
 
-            {/* Google button */}
             <button
               type="button"
-              className="w-full bg-transparent border border-[rgba(135,174,206,0.2)] rounded-xl px-4 py-3.25 flex items-center justify-center gap-2.5 text-[13px] text-[rgba(17,64,219,0.6)] cursor-pointer transition-all duration-200 mb-5 hover:border-[rgba(135,174,206,0.45)] hover:bg-[rgba(135,174,206,0.06)]"
+              className="w-full bg-transparent border border-[rgba(135,174,206,0.2)] rounded-xl px-4 py-3.25 flex items-center justify-center gap-2.5 text-[13px] text-[rgba(17,64,219,0.8)] cursor-pointer transition-all duration-200 mb-5 hover:border-[rgba(135,174,206,0.45)] hover:bg-[rgba(135,174,206,0.06)]"
             >
               <svg width="16" height="16" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -139,7 +116,6 @@ export default function SignUp() {
               Continue with Google
             </button>
 
-            {/* Divider */}
             <div className="flex items-center gap-3 mb-6">
               <div className="flex-1 h-px bg-[rgba(175,208,110,0.15)]" />
               <span className="text-[11px] text-[rgba(240,244,255,0.25)] tracking-[0.08em] uppercase">or</span>
@@ -147,156 +123,107 @@ export default function SignUp() {
             </div>
 
             <form onSubmit={handleSubmit}>
-              {/* Email */}
               <div className="mb-4">
                 <label className="block text-[11px] font-medium text-[rgba(240,244,255,0.5)] tracking-[0.08em] uppercase mb-2">Email Address</label>
                 <div className="field-icon-wrap relative">
                   <span className="field-icon absolute left-3.5 top-1/2 -translate-y-1/2 opacity-40 transition-opacity duration-200 pointer-events-none text-[#87aece]">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                      <rect x="2" y="4" width="20" height="16" rx="3"/>
-                      <path d="M2 8l10 6 10-6"/>
+                      <rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 8l10 6 10-6"/>
                     </svg>
                   </span>
                   <input
                     type="email"
                     placeholder="youremail@africau.edu"
-                    className={`field-input w-full bg-[rgba(255,255,255,0.04)] border rounded-xl py-[13px] pl-10 pr-3.5 text-sm text-[#f0f4ff] outline-none transition-all duration-200 placeholder:text-[rgba(240,244,255,0.2)] ${errors.email ? "border-[rgba(255,100,100,0.5)]" : "border-[rgba(135,174,206,0.2)]"}`}
+                    className={`field-input w-full bg-[rgba(255,255,255,0.04)] border rounded-xl py-[13px] pl-10 pr-3.5 text-sm text-[#f0f4ff] outline-none transition-all duration-200 ${errors.email ? "border-[rgba(255,100,100,0.5)]" : "border-[rgba(135,174,206,0.2)]"}`}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    onFocus={() => setFocused("email")}
-                    onBlur={() => setFocused("")}
                   />
                 </div>
-                {errors.email && <div className="text-[11px] text-[#ff8080] mt-1 pl-1">{errors.email}</div>}
+                {errors.email && <div className="text-[11px] text-[#ff8080] mt-1">{errors.email}</div>}
               </div>
 
-              {/* Password */}
               <div className="mb-4">
                 <label className="block text-[11px] font-medium text-[rgba(240,244,255,0.5)] tracking-[0.08em] uppercase mb-2">Password</label>
                 <div className="field-icon-wrap relative">
                   <span className="field-icon absolute left-3.5 top-1/2 -translate-y-1/2 opacity-40 transition-opacity duration-200 pointer-events-none text-[#87aece]">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                      <rect x="3" y="11" width="18" height="11" rx="2"/>
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                      <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
                   </span>
                   <input
                     type="password"
                     placeholder="••••••••"
-                    className={`field-input w-full bg-[rgba(255,255,255,0.04)] border rounded-xl py-[13px] pl-10 pr-3.5 text-sm text-[#f0f4ff] outline-none transition-all duration-200 placeholder:text-[rgba(240,244,255,0.2)] ${errors.password ? "border-[rgba(255,100,100,0.5)]" : "border-[rgba(135,174,206,0.2)]"}`}
+                    className={`field-input w-full bg-[rgba(255,255,255,0.04)] border rounded-xl py-[13px] pl-10 pr-3.5 text-sm text-[#f0f4ff] outline-none transition-all duration-200 ${errors.password ? "border-[rgba(255,100,100,0.5)]" : "border-[rgba(135,174,206,0.2)]"}`}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    onFocus={() => setFocused("password")}
-                    onBlur={() => setFocused("")}
                   />
                 </div>
-                {errors.password && <div className="text-[11px] text-[#ff8080] mt-1 pl-1">{errors.password}</div>}
               </div>
 
-              {/* Confirm Password */}
-              <div className="mb-4">
+              <div className="mb-6">
                 <label className="block text-[11px] font-medium text-[rgba(240,244,255,0.5)] tracking-[0.08em] uppercase mb-2">Confirm Password</label>
                 <div className="field-icon-wrap relative">
                   <span className="field-icon absolute left-3.5 top-1/2 -translate-y-1/2 opacity-40 transition-opacity duration-200 pointer-events-none text-[#87aece]">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                      <path d="M9 12l2 2 4-4"/>
-                      <rect x="3" y="11" width="18" height="11" rx="2"/>
-                      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                      <path d="M9 12l2 2 4-4"/><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
                   </span>
                   <input
                     type="password"
                     placeholder="••••••••"
-                    className={`field-input w-full bg-[rgba(255,255,255,0.04)] border rounded-xl py-[13px] pl-10 pr-3.5 text-sm text-[#f0f4ff] outline-none transition-all duration-200 placeholder:text-[rgba(240,244,255,0.2)] ${errors.confirmPassword ? "border-[rgba(255,100,100,0.5)]" : "border-[rgba(135,174,206,0.2)]"}`}
+                    className={`field-input w-full bg-[rgba(255,255,255,0.04)] border rounded-xl py-[13px] pl-10 pr-3.5 text-sm text-[#f0f4ff] outline-none transition-all duration-200 ${errors.confirmPassword ? "border-[rgba(255,100,100,0.5)]" : "border-[rgba(135,174,206,0.2)]"}`}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    onFocus={() => setFocused("confirm")}
-                    onBlur={() => setFocused("")}
                   />
                 </div>
-                {errors.confirmPassword && <div className="text-[11px] text-[#ff8080] mt-1 pl-1">{errors.confirmPassword}</div>}
+                {errors.confirmPassword && <div className="text-[11px] text-[#ff8080] mt-1">{errors.confirmPassword}</div>}
               </div>
 
               <button
                 type="submit"
-                className="btn-primary-shine relative w-full bg-gradient-to-br from-[#407118] to-[#5a9e24] text-[#f0f4ff] border border-[rgba(175,208,110,0.3)] rounded-xl py-3.5 text-sm font-medium tracking-wide cursor-pointer transition-all duration-150 overflow-hidden mt-2 hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(64,113,24,0.45)] active:translate-y-0"
+                className="btn-primary-shine relative w-full bg-gradient-to-br from-[#407118] to-[#5a9e24] text-[#f0f4ff] border border-[rgba(175,208,110,0.3)] rounded-xl py-3.5 text-sm font-medium tracking-wide cursor-pointer transition-all duration-150 overflow-hidden hover:shadow-[0_8px_24px_rgba(64,113,24,0.45)]"
               >
                 Create Account
               </button>
             </form>
 
-            <div className="text-[11px] text-[rgba(240,244,255,0.25)] text-center mt-4 leading-relaxed">
-              By creating an account you agree to our{" "}
-              <a href="#" className="text-[rgba(175,208,110,0.7)] no-underline hover:text-[#afd06e]">Terms of Service</a>
-              {" "}and{" "}
-              <a href="#" className="text-[rgba(175,208,110,0.7)] no-underline hover:text-[#afd06e]">Privacy Policy</a>
-            </div>
-
-            <div className="text-center text-xs text-[rgba(240,244,255,0.3)] mt-5">
+            <div className="text-center text-xs text-[rgba(240,244,255,0.3)] mt-6">
               Already have an account?{" "}
-              <Link to="/" className="text-[#afd06e] no-underline font-medium transition-opacity duration-200 hover:opacity-70">Log in here</Link>
+              <Link to="/" className="text-[#afd06e] no-underline font-medium hover:opacity-70">Log in here</Link>
             </div>
           </div>
         </div>
 
-        {/* Vertical divider */}
-        <div className="hidden max-[800px]:hidden w-px my-12 relative z-10" style={{ background: "linear-gradient(to bottom, transparent, rgba(175,208,110,0.15) 30%, rgba(175,208,110,0.15) 70%, transparent)" }} />
-
-        {/* Right: Brand panel */}
-        <div className="flex-1 hidden md:flex flex-col justify-center px-16 py-[60px] relative z-10">
-          <div className="inline-flex items-center gap-2 bg-[rgba(175,208,110,0.1)] border border-[rgba(175,208,110,0.25)] rounded-full px-3.5 py-1.5 w-fit mb-10">
-            <div className="animate-pulse-dot w-[7px] h-[7px] bg-[#afd06e] rounded-full shadow-[0_0_8px_#afd06e]" />
-            <span className="text-xs font-medium text-[#afd06e] tracking-[0.08em] uppercase">Flow Farm Dashboard</span>
+        {/* --- RIGHT: BRAND PANEL --- */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 lg:px-16 lg:py-[60px] relative z-10 bg-[rgba(14,22,40,0.5)] lg:bg-transparent">
+          <div className="inline-flex items-center gap-2 bg-[rgba(175,208,110,0.1)] border border-[rgba(175,208,110,0.25)] rounded-full px-3.5 py-1.5 w-fit mb-6 lg:mb-10">
+            <div className="animate-pulse-dot w-[7px] h-[7px] bg-[#afd06e] rounded-full" />
+            <span className="text-[10px] lg:text-xs font-medium text-[#afd06e] tracking-[0.08em] uppercase">Flow Farm Dashboard</span>
           </div>
 
-          <h1 className="font-playfair text-[clamp(36px,4vw,52px)] font-semibold text-[#f0f4ff] leading-[1.15] mb-5">
+          <h1 className="font-playfair text-[32px] md:text-[40px] lg:text-[clamp(36px,4vw,52px)] font-semibold text-[#f0f4ff] leading-[1.2] mb-5">
             Your ecosystem<br />
             <span className="text-[#afd06e]">starts here.</span>
           </h1>
 
-          <p className="text-[15px] text-[rgba(240,244,255,0.45)] leading-[1.7] max-w-[340px] mb-12">
-            Set up your aquaponics monitoring system in minutes. Track water chemistry, fish health, and plant growth all from one intelligent dashboard.
+          <p className="text-[14px] lg:text-[15px] text-[rgba(240,244,255,0.45)] leading-[1.7] max-w-[400px] mb-8 lg:mb-12">
+            Set up your aquaponics monitoring system in minutes. Track water chemistry, fish health, and plant growth from one intelligent dashboard.
           </p>
 
-          <div className="flex flex-col gap-4">
+          {/* Features Grid: 1 col on small mobile, 2 cols on tablet, 1 col on large desktop sidebar */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
             {[
-              {
-                icon: (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2C6 2 2 7 2 12s4 10 10 10 10-4.5 10-10S18 2 12 2z"/>
-                    <path d="M12 6v6l4 2"/>
-                  </svg>
-                ),
-                title: "Real-time monitoring",
-                sub: "Live pH, temperature, and dissolved oxygen readings every 30 seconds"
-              },
-              {
-                icon: (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M18 20V10M12 20V4M6 20v-6"/>
-                  </svg>
-                ),
-                title: "Yield analytics",
-                sub: "Track harvest cycles and optimize grow schedules with AI-powered insights"
-              },
-              {
-                icon: (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                  </svg>
-                ),
-                title: "Smart alerts",
-                sub: "Instant notifications when your system needs attention"
-              }
-            ].map(({ icon, title, sub }) => (
-              <div key={title} className="flex items-start gap-3.5">
+              { icon: "Real-time monitoring", sub: "Live pH, temperature, and dissolved oxygen readings" },
+              { icon: "Yield analytics", sub: "Track harvest cycles and optimize grow schedules" },
+              { icon: "Smart alerts", sub: "Instant notifications when your system needs attention" }
+            ].map((f, i) => (
+              <div key={i} className="flex items-start gap-3.5">
                 <div className="w-9 h-9 rounded-[10px] bg-[rgba(175,208,110,0.1)] border border-[rgba(175,208,110,0.2)] flex items-center justify-center shrink-0 text-[#afd06e]">
-                  {icon}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
                 <div>
-                  <div className="text-[13px] font-medium text-[rgba(240,244,255,0.85)] mb-0.5">{title}</div>
-                  <div className="text-xs text-[rgba(240,244,255,0.35)] leading-relaxed">{sub}</div>
+                  <div className="text-[13px] font-medium text-[rgba(240,244,255,0.85)] mb-0.5">{f.icon}</div>
+                  <div className="text-xs text-[rgba(240,244,255,0.35)] leading-relaxed">{f.sub}</div>
                 </div>
               </div>
             ))}
